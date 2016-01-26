@@ -1,7 +1,7 @@
 package com.mystorebusiness.cart;
 
 import com.mystorebusiness.exception.FunctionnalException;
-import com.mystorebusiness.products.Product;
+import com.mystorebusiness.product.Product;
 
 public class CartEntry {
 

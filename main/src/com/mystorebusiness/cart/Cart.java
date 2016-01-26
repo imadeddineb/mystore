@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.commons.collections.CollectionUtils;
 
 import com.mystorebusiness.exception.FunctionnalException;
-import com.mystorebusiness.products.Product;
+import com.mystorebusiness.product.Product;
 
 public class Cart {
 

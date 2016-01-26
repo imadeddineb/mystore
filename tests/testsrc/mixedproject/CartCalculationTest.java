@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.mystorebusiness.cart.Cart;
 import com.mystorebusiness.exception.FunctionnalException;
-import com.mystorebusiness.products.Product;
+import com.mystorebusiness.product.Product;
 
 public class CartCalculationTest {
 

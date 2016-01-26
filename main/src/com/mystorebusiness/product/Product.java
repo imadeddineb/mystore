@@ -1,4 +1,4 @@
-package com.mystorebusiness.products;
+package com.mystorebusiness.product;
 
 import java.util.List;
 

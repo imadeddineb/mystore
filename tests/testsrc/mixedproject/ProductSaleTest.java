@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import com.mystorebusiness.exception.FunctionnalException;
-import com.mystorebusiness.products.Product;
+import com.mystorebusiness.product.Product;
 
 public class ProductSaleTest {
 
