@@ -107,4 +107,14 @@ public class Cart {
 		}
 		return null;
 	}
+
+	public boolean isEmty() {
+		if(CollectionUtils.isEmpty(this.entries))
+		{
+			return false;
+		}
+		
+		return true;
+		
+	}
 }
