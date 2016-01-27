@@ -7,6 +7,7 @@ public class CartEntry {
 
 	private int quantity;
 	private Product product;
+	private boolean hasNoProduct;
 
 	public CartEntry(int quantity, Product product) throws FunctionnalException {
 		super();
@@ -25,6 +26,13 @@ public class CartEntry {
 
 	public void updateEntryQuantity(int quantity) {
 		this.quantity = this.quantity + quantity;
+		if (this.quantity <= 0) {
+			this.hasNoProduct = true;
+		}
+	}
+
+	public boolean hasNoProduct() {
+		return this.hasNoProduct;
 	}
 
 	public Product getProduct() {

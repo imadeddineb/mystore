@@ -42,17 +42,22 @@ public class Cart {
 
 	}
 
-	public void addProduct(int quantity, Product product)
+	public void addProduct(Product product, int quantity)
 			throws FunctionnalException {
 
 		CartEntry productEntry = getProductEntry(product);
 		// Check for existing entry
+		// -1 means remove an item
 		if (productEntry == null) {
 			CartEntry newEntry = new CartEntry(quantity, product);
 			addNewEntry(newEntry);
 			// update Existing entry
 		} else {
 			productEntry.updateEntryQuantity(quantity);
+
+			if (productEntry.hasNoProduct()) {
+				this.entries.remove(productEntry);
+			}
 		}
 		this.isUpTodate = false;
 
@@ -109,12 +114,11 @@ public class Cart {
 	}
 
 	public boolean isEmty() {
-		if(CollectionUtils.isEmpty(this.entries))
-		{
+		if (CollectionUtils.isEmpty(this.entries)) {
 			return false;
 		}
-		
+
 		return true;
-		
+
 	}
 }

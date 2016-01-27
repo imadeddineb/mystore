@@ -1,4 +1,4 @@
-package mixedproject;
+package mystore.test;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,7 +17,7 @@ public class CartCalculationTest {
 		Product babyNappies = new Product("0000123", 1.99,
 				"Luxury Baby Nappies Size 4");
 		// Just one product
-		cart.addProduct(1, babyNappies);
+		cart.addProduct(babyNappies, 1);
 
 		assertEquals("Cart Total is  ", new Double(1.99), cart.getTotal());
 	}
@@ -30,15 +30,15 @@ public class CartCalculationTest {
 		Product babyNappies = new Product("0000123", 1.99,
 				"Luxury Baby Nappies Size 4");
 
-		cart.addProduct(1, babyNappies);
-		cart.addProduct(1, babyNappies);
+		cart.addProduct(babyNappies, 1);
+		cart.addProduct(babyNappies, 1);
 
 		// Case 1
 		assertEquals("Cart Total is  ", new Double(3.98), cart.getTotal());
 
 		Product babyTissues = new Product("0000124", 1.25,
 				"Baby tissue alcohool free");
-		cart.addProduct(1, babyTissues);
+		cart.addProduct(babyTissues, 1);
 
 		// Case 2
 		assertEquals("Cart  new total is  ", new Double(5.23), cart.getTotal());
@@ -55,8 +55,8 @@ public class CartCalculationTest {
 		Product babyTissues = new Product("0000124", 1.25,
 				"Baby tissue alcohool free");
 		// Add some products
-		cart.addProduct(1, babyNappies);
-		cart.addProduct(1, babyTissues);
+		cart.addProduct(babyNappies, 1);
+		cart.addProduct(babyTissues, 1);
 
 		// add a shipping cost
 		cart.addShippingCost(1.00);

@@ -1,4 +1,4 @@
-package mixedproject;
+package mystore.test;
 
 import static org.junit.Assert.assertEquals;
 
