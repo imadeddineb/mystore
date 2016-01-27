@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
 
+import com.mystorebusiness.cart.delivery.DeliveryMode;
 import com.mystorebusiness.exception.FunctionnalException;
 import com.mystorebusiness.product.Product;
 
@@ -14,8 +15,11 @@ public class Cart {
 	private List<CartEntry> entries;
 	private Double totalPrice;
 	private Double discount;
-	private Double shippingCost;
+
 	private boolean isUpTodate;
+
+	private Double deliveryCost;
+	private DeliveryMode deliveryMode;
 
 	public Cart(String number) {
 		super();
@@ -23,21 +27,23 @@ public class Cart {
 		this.totalPrice = 0.00;
 	}
 
-	public String getNumber() {
-		return this.number;
-	}
-
 	public Double getTotal() {
 		calculateCart();
-		if (shippingCost == null) {
+		if (deliveryCost == null) {
 			return this.totalPrice;
 		}
-		return this.totalPrice + shippingCost;
+		return this.totalPrice + deliveryCost;
 
 	}
 
-	public void addShippingCost(Double shippingCost) {
-		this.shippingCost = shippingCost;
+	public void setDeliveryMode(DeliveryMode deliveryMode) {
+
+		addShippingCost(deliveryMode.getDeliveryCost());
+
+	}
+
+	private void addShippingCost(Double shippingCost) {
+		this.deliveryCost = shippingCost;
 		this.isUpTodate = false;
 
 	}
@@ -121,4 +127,9 @@ public class Cart {
 		return true;
 
 	}
+
+	public String getNumber() {
+		return this.number;
+	}
+
 }

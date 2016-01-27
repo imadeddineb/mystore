@@ -1,6 +1,7 @@
 package com.mystorebusiness.user;
 
 import com.mystorebusiness.cart.Cart;
+import com.mystorebusiness.cart.delivery.DeliveryMode;
 import com.mystorebusiness.cart.factory.CartFacorty;
 import com.mystorebusiness.cart.factory.imp.DefaultCartFactory;
 import com.mystorebusiness.exception.FunctionnalException;
@@ -23,6 +24,10 @@ public class User {
 	public User(String id) {
 		super();
 		this.id = id;
+	}
+
+	public void choseDelivery(DeliveryMode deliveryMode) {
+		this.cart.setDeliveryMode(deliveryMode);
 	}
 
 	public void addToCart(Product aProdudct, int quantity)

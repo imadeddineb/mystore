@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import com.mystorebusiness.cart.Cart;
+import com.mystorebusiness.cart.delivery.DeliveryMode;
 import com.mystorebusiness.exception.FunctionnalException;
 import com.mystorebusiness.product.Product;
 
@@ -58,10 +59,11 @@ public class CartCalculationTest {
 		cart.addProduct(babyNappies, 1);
 		cart.addProduct(babyTissues, 1);
 
-		// add a shipping cost
-		cart.addShippingCost(1.00);
+		assertEquals("Cart  new total is  ", new Double(3.24), cart.getTotal());
 
-		assertEquals("Cart  new total is  ", new Double(4.24), cart.getTotal());
+		DeliveryMode deliveryMode = new DeliveryMode("dhl", "DHL", 0.77);
+		cart.setDeliveryMode(deliveryMode);
+		assertEquals("Cart  new total is  ", new Double(4.01), cart.getTotal());
 
 	}
 }
