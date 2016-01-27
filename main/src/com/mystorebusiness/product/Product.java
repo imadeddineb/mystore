@@ -15,6 +15,10 @@ public class Product {
 	private Double salePrice;
 	private String name;
 
+	private ProductStatus status;
+
+	private Catalog catalog;
+
 	List<Media> galleryImages;
 
 	/**
@@ -29,6 +33,11 @@ public class Product {
 			throws FunctionnalException {
 		super();
 
+		init(sku, price, name);
+	}
+
+	private void init(String sku, Double price, String name)
+			throws FunctionnalException {
 		if (price == null || StringUtils.isBlank(name)) {
 			throw new FunctionnalException(
 					"Product should have at least a name and price");
@@ -36,6 +45,16 @@ public class Product {
 		this.sku = sku;
 		this.price = price;
 		this.name = name;
+
+		// new products have always a status NEW
+		this.status = ProductStatus.NEW;
+	}
+
+	public Product(String sku, Double price, String name, Catalog catalog)
+			throws FunctionnalException {
+		// sku price and name constructor
+		init(sku, price, name);
+		this.catalog = catalog;
 	}
 
 	/**
